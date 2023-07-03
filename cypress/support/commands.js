@@ -23,3 +23,36 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login', (email, password) => {
+  cy.visit('/login')
+
+  cy.get('input[name=email]').type(email)
+
+  // {enter} causes the form to submit
+  cy.get('input[name=password]').type(`${password}{enter}`, { log: false })
+
+  // we should be redirected to /dashboard
+  cy.url().should('include', '/')
+
+  // UI should reflect this user being logged in
+  cy.get('.navbar-nav').should('contain', "Signed in as")
+})
+
+
+Cypress.Commands.add('signup', (name, email, password) => {
+  cy.visit('/signup')
+
+  cy.get('input[name=user\\[name\\]]').type(name)
+
+  cy.get('input[name=user\\[email\\]]').type(email)
+
+  cy.get('input[name=user\\[password\\]]').type(password, { log: false })
+  
+  // {enter} causes the form to submit
+  cy.get('input[name=user\\[password_confirmation\\]]').type(`${password}{enter}`, { log: false })
+
+  cy.url().should('include', '/')
+
+  // UI should reflect this user being logged in
+  cy.get('.navbar-nav').should('contain', "Signed in as")
+})
