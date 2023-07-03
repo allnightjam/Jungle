@@ -1,6 +1,10 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 6.1.
+
+https://github.com/allnightjam/jungle-rails/assets/116188111/8e52dd03-8657-4668-afca-3fd336bcf7a3
+
+https://github.com/allnightjam/jungle-rails/assets/116188111/1921597c-fbe7-471a-a8f3-8a33096d5a42
 
 ## Setup
 
